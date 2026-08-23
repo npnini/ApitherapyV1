@@ -150,18 +150,6 @@ const PointsAdmin: React.FC = () => {
             );
             if (labelMatches) return true;
 
-            // Search in descriptions (Hebrew and English)
-            const descMatches = Object.values(point.description || {}).some(val =>
-                typeof val === 'string' && val.toLowerCase().includes(term)
-            );
-            if (descMatches) return true;
-
-            // Search in long text (Hebrew and English)
-            const longTextMatches = Object.values(point.longText || {}).some(val =>
-                typeof val === 'string' && val.toLowerCase().includes(term)
-            );
-            if (longTextMatches) return true;
-
             return false;
         });
     }, [points, searchTerm]);
